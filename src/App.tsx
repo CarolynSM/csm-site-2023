@@ -1,26 +1,57 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+// import sections from './sections';
+import { Navigation } from './components/Navigation/Navigation';
+import { ContentContainer } from './components/ContentContainer/ContentContainer';
+import { Home } from './components/Home/Home';
+import { About } from './components/About/About';
+import { Timeline } from './components/Timeline/Timeline';
+import { Work } from './components/Work/Work';
+import { Contact } from './components/Contact/Contact';
 import './App.css';
 
-function App() {
+const sections = [
+  {
+    displayContent: <Home/>,
+    name: 'home',
+    title: 'home',
+  },
+  {
+    displayContent: <About/>,
+    name: 'about',
+    title: 'about',
+  },
+  {
+    displayContent: <Timeline/>,
+    name: 'timeline',
+    title: 'timeline',
+  },
+  {
+    displayContent: <Work/>,
+    name: 'work',
+    title: 'work',
+  },
+  {
+    displayContent: <Contact/>,
+    name: 'contact',
+    title: 'contact',
+  },
+];
+
+const App = () => {
+  const [content, setContent] = useState('home');
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Navigation
+          title={`hi, i'm carolyn.`}
+          sections={sections}
+          onClick={setContent}
+        />
       </header>
+      <ContentContainer content={content} sections={sections} />
     </div>
   );
-}
+};
 
 export default App;

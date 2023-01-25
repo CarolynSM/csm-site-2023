@@ -1,0 +1,15 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.home-container p {
+    font-size: 24px;;
+    /* padding: 0 60px; */
+}
+
+.home-container .hero {
+    font-size: 60px;
+    padding: 0 48px;
+}
